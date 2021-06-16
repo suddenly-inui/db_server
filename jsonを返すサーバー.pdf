@@ -1,0 +1,32 @@
+'''
+import http.server as s
+import json
+
+
+class MyHandler(s.BaseHTTPRequestHandler):
+    def do_GET(self):
+        # レスポンス処理
+        res = {
+            "Name": "Yuki Inui",
+            "KG": "d-hacks",
+            "Hobby": "YouTube"
+        }
+        self.send_response(200)
+        self.send_header("Content-type", "application/json;charset=utf-8")
+        self.end_headers()
+        body_json = json.dumps(res)
+        self.wfile.write(body_json.encode("utf-8"))
+
+
+host = "0.0.0.0"
+port = 20000
+httpd = s.HTTPServer((host, port), MyHandler)
+httpd.serve_forever()
+'''
+
+実行:
+python server.py
+curl localhost:20000
+
+出力:
+{"Name": "Yuki Inui", "KG": "d-hacks", "Hobby": "YouTube"}
