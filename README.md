@@ -1,4 +1,5 @@
 # 実行
+合ってるか微妙ですが...  
 $python server.py
 
 $curl http://localhost:20000  
